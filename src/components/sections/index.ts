@@ -1,7 +1,5 @@
 export { Hero } from "./Hero";
-export { Features } from "./Features";
+export { WhatsInside } from "./WhatsInside";
 export { HowItWorks } from "./HowItWorks";
-export { Pricing } from "./Pricing";
-export { Testimonials } from "./Testimonials";
 export { CTA } from "./CTA";
 export { Footer } from "./Footer";

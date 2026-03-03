@@ -2,14 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Bot, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
+  { label: "What's Inside", href: "#whats-inside" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Testimonials", href: "#testimonials" },
 ];
 
 export function Navbar() {
@@ -28,31 +26,29 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "glass border-b border-white/5 shadow-lg shadow-black/20"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background",
+        scrolled && "border-b border-white/5 shadow-lg shadow-black/20"
       )}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
-            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-secondary">
-              <Sparkles className="h-4 w-4 text-white" />
+          <a href="#" className="flex items-center gap-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent">
+              <Bot className="h-4 w-4 text-white" />
             </div>
             <span className="text-lg font-bold text-white tracking-tight">
-              NovaMind
+              MoziHire
             </span>
           </a>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop Nav — absolute center */}
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-2 text-sm text-muted hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/5"
+                className="px-4 py-1.5 text-sm text-muted hover:text-white transition-all duration-200 rounded-full border border-transparent hover:border-white/10 hover:bg-white/5"
               >
                 {link.label}
               </a>
@@ -60,19 +56,13 @@ export function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#"
-              className="px-4 py-2 text-sm text-muted hover:text-white transition-colors duration-200"
-            >
-              Sign In
-            </a>
+          <div className="hidden md:flex items-center">
             <a
               href="#cta"
-              className="group relative px-5 py-2.5 text-sm font-medium text-white rounded-full bg-gradient-to-r from-accent to-accent-secondary overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
+              className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-background rounded-full bg-accent hover:bg-accent/90 transition-all duration-200"
             >
-              <span className="relative z-10">Get Started Free</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              Get the Playbook — $19
+              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
           </div>
 
@@ -81,7 +71,11 @@ export function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-muted hover:text-white transition-colors"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </nav>
@@ -110,9 +104,10 @@ export function Navbar() {
                 <a
                   href="#cta"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center px-5 py-2.5 text-sm font-medium text-white rounded-full bg-gradient-to-r from-accent to-accent-secondary"
+                  className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-background rounded-full bg-accent"
                 >
-                  Get Started Free
+                  Get the Playbook — $19
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </div>

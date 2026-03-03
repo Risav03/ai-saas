@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NovaMind AI — Intelligent Automation for Enterprise",
+  title: "MoziHire — Build a Company of AI Agents",
   description:
-    "NovaMind AI empowers B2B teams with intelligent automation, predictive analytics, and seamless integrations. Transform your workflows with AI.",
+    "The practical playbook for building and managing AI employees. Learn how to set up autonomous agents that handle real work.",
 };
 
 export default function RootLayout({
