@@ -4,13 +4,13 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-background: #06060a;
-  --color-foreground: #e4e4e7;
-  --color-muted: #71717a;
-  --color-border: #27272a;
-  --color-card: rgba(15, 15, 25, 0.6);
+  --color-background: #ffffff;
+  --color-foreground: #1a1a2e;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-card: rgba(255, 255, 255, 0.8);
   --color-accent: #10b981;
-  --color-surface: #0f0f17;
+  --color-surface: #f8fafc;
 }
 
 /* Custom scrollbar */
@@ -18,14 +18,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #06060a;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #d1d5db;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #9ca3af;
 }
 
 html {
@@ -40,16 +40,16 @@ body {
 }
 
 .glass {
-  background: rgba(15, 15, 25, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Dot grid background pattern */
 .dot-pattern {
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.05) 1px,
+    rgba(0, 0, 0, 0.06) 1px,
     transparent 1px
   );
   background-size: 24px 24px;

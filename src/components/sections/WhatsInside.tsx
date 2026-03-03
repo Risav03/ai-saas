@@ -60,7 +60,7 @@ export function WhatsInside() {
       className="relative py-24 lg:py-32 overflow-hidden"
     >
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-8">
         {/* Section Header */}
@@ -68,7 +68,7 @@ export function WhatsInside() {
           <span className="text-sm font-mono uppercase tracking-widest text-accent mb-4 block">
             What&apos;s Inside
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
             66 pages. No fluff.
           </h2>
           <p className="mx-auto max-w-lg text-lg text-muted">
@@ -81,7 +81,7 @@ export function WhatsInside() {
         <div className="space-y-0">
           {chapters.map((chapter, i) => (
             <FadeIn key={chapter.title} delay={0.05 * i}>
-              <div className="group flex gap-6 py-6 border-b border-white/5 last:border-b-0">
+              <div className="group flex gap-6 py-6 border-b border-border last:border-b-0">
                 {/* Chapter Number */}
                 <span className="text-sm font-mono text-accent shrink-0 w-16 pt-0.5">
                   {chapter.number}
@@ -89,7 +89,7 @@ export function WhatsInside() {
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-base font-semibold text-white mb-1">
+                  <h3 className="text-base font-semibold text-foreground mb-1">
                     {chapter.title}
                   </h3>
                   <p className="text-sm text-muted leading-relaxed">

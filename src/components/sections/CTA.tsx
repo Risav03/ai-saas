@@ -7,15 +7,15 @@ export function CTA() {
   return (
     <section id="cta" className="relative py-24 lg:py-32 overflow-hidden">
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-8 text-center">
         <FadeIn>
-          <div className="relative rounded-xl bg-surface/80 border border-white/10 p-12 lg:p-16 overflow-hidden">
+<div className="relative rounded-xl bg-surface/80 border border-border p-12 lg:p-16 overflow-hidden">
             {/* Blur gradient */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
-            <h2 className="relative text-3xl sm:text-4xl font-bold text-white mb-6">
+            <h2 className="relative text-3xl sm:text-4xl font-bold text-foreground mb-6">
               Ready to hire your first AI?
             </h2>
             <p className="relative mx-auto max-w-lg text-lg text-muted mb-10">

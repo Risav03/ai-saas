@@ -34,7 +34,7 @@ export function HowItWorks() {
       className="relative py-24 lg:py-32 overflow-hidden"
     >
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
@@ -42,7 +42,7 @@ export function HowItWorks() {
           <span className="text-sm font-mono uppercase tracking-widest text-accent mb-4 block">
             Process
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             How It Works
           </h2>
           <p className="mx-auto max-w-xl text-lg text-muted">
@@ -56,9 +56,9 @@ export function HowItWorks() {
             const Icon = step.icon;
             return (
               <FadeIn key={step.step} delay={0.15 * i}>
-                <div className="relative p-6 rounded-xl border border-white/10 bg-surface/80 overflow-hidden">
+                <div className="relative p-6 rounded-xl border border-border bg-surface/80 overflow-hidden">
                   {/* Blur gradient */}
-                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[60px] pointer-events-none" />
+                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/10 rounded-full blur-[60px] pointer-events-none" />
 
                   {/* Icon + Step */}
                   <div className="relative flex items-center gap-3 mb-4">
@@ -70,7 +70,7 @@ export function HowItWorks() {
                     </span>
                   </div>
 
-                  <h3 className="relative text-lg font-semibold text-white mb-2">
+                  <h3 className="relative text-lg font-semibold text-foreground mb-2">
                     {step.title}
                   </h3>
                   <p className="relative text-sm text-muted leading-relaxed">
