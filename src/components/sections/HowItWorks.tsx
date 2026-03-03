@@ -56,9 +56,12 @@ export function HowItWorks() {
             const Icon = step.icon;
             return (
               <FadeIn key={step.step} delay={0.15 * i}>
-                <div className="relative p-6 rounded-xl border border-white/5 bg-surface/50">
+                <div className="relative p-6 rounded-xl border border-white/10 bg-surface/80 overflow-hidden">
+                  {/* Blur gradient */}
+                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-[60px] pointer-events-none" />
+
                   {/* Icon + Step */}
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="relative flex items-center gap-3 mb-4">
                     <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-accent/10">
                       <Icon className="h-5 w-5 text-accent" />
                     </div>
@@ -67,10 +70,10 @@ export function HowItWorks() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="relative text-lg font-semibold text-white mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed">
+                  <p className="relative text-sm text-muted leading-relaxed">
                     {step.description}
                   </p>
                 </div>

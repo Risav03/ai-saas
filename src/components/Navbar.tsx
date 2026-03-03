@@ -48,7 +48,7 @@ export function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-1.5 text-sm text-muted hover:text-white transition-all duration-200 rounded-full border border-transparent hover:border-white/10 hover:bg-white/5"
+                className="px-4 py-1.5 text-sm text-muted hover:text-white transition-all duration-200 rounded-lg border border-transparent hover:border-white/10 hover:bg-white/5"
               >
                 {link.label}
               </a>
@@ -59,7 +59,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center">
             <a
               href="#cta"
-              className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-background rounded-full bg-accent hover:bg-accent/90 transition-all duration-200"
+              className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-background rounded-lg bg-accent hover:bg-accent/90 transition-all duration-200"
             >
               Get the Playbook — $19
               <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -104,7 +104,7 @@ export function Navbar() {
                 <a
                   href="#cta"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-background rounded-full bg-accent"
+                  className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-background rounded-lg bg-accent"
                 >
                   Get the Playbook — $19
                   <ArrowRight className="h-3.5 w-3.5" />
