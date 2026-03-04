@@ -5,6 +5,7 @@ import { ArrowRight, Mail, Share2, Code2, Server, Shield, Bot, Activity } from "
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FadeIn } from "@/components/motion";
+import { FallingPattern } from "@/components/ui/falling-pattern";
 
 const agentData = [
   {
@@ -77,9 +78,15 @@ export function Hero() {
       className="relative min-h-screen flex flex-col justify-center overflow-hidden max-lg:pt-20"
     >
       {/* Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <FallingPattern
+          color="rgba(16, 185, 129, 0.7)"
+          backgroundColor="rgba(255, 255, 255, 0.6)"
+          className="absolute inset-0 h-full w-full [mask-image:radial-gradient(ellipse_at_center,transparent,var(--color-background))]"
+          duration={150}
+          density={0}
+        />
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[200px]" />
-        <div className="absolute inset-0 dot-pattern opacity-40" />
       </div>
 
       {/* Content */}

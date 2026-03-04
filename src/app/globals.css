@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
@@ -10,7 +11,12 @@
   --color-border: #e5e7eb;
   --color-card: rgba(255, 255, 255, 0.8);
   --color-accent: #10b981;
+  --color-primary: #10b981;
   --color-surface: #f8fafc;
+}
+
+.dark {
+  --background: oklch(0 0 0);
 }
 
 /* Custom scrollbar */
