@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, LogIn } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -14,11 +16,25 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -57,8 +73,8 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center">
+          {/* Desktop CTA + Auth */}
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="#cta"
               className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-white rounded-lg bg-accent hover:bg-accent/90 transition-all duration-200"
@@ -66,6 +82,80 @@ export function Navbar() {
               Get the Playbook — $19
               <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
+
+            {status === "loading" ? (
+              <div className="h-8 w-8 rounded-full bg-border animate-pulse" />
+            ) : session?.user ? (
+              /* Avatar + Dropdown */
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  className="flex items-center rounded-full ring-2 ring-transparent hover:ring-border transition-all duration-200 cursor-pointer"
+                >
+                  {session.user.image ? (
+                    <Image
+                      src={session.user.image}
+                      alt={session.user.name ?? "User"}
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 rounded-full"
+                    />
+                  ) : (
+                    <div className="h-8 w-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-medium">
+                      {session.user.name?.charAt(0) ?? "U"}
+                    </div>
+                  )}
+                </button>
+
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 4, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 4, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 mt-2 w-56 rounded-xl border border-border bg-background shadow-xl shadow-black/10 overflow-hidden z-50"
+                    >
+                      <div className="px-4 py-3 border-b border-border">
+                        <p className="text-sm font-medium text-foreground truncate">
+                          {session.user.name}
+                        </p>
+                        <p className="text-xs text-muted truncate">
+                          {session.user.email}
+                        </p>
+                      </div>
+                      <div className="p-1">
+                        <Link
+                          href="/dashboard"
+                          onClick={() => setDropdownOpen(false)}
+                          className="block px-3 py-2 text-sm text-foreground hover:bg-black/5 rounded-lg transition-colors"
+                        >
+                          Dashboard
+                        </Link>
+                        <button
+                          onClick={() => {
+                            setDropdownOpen(false);
+                            signOut({ redirectTo: "/" });
+                          }}
+                          className="w-full text-left px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                        >
+                          Sign Out
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              /* Login Button */
+              <Link
+                href="/login"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground rounded-lg border border-border hover:bg-black/5 transition-all duration-200"
+              >
+                <LogIn className="h-3.5 w-3.5" />
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,7 +192,7 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <div className="pt-3 border-t border-border mt-3">
+              <div className="pt-3 border-t border-border mt-3 space-y-2">
                 <a
                   href="#cta"
                   onClick={() => setMobileOpen(false)}
@@ -111,6 +201,49 @@ export function Navbar() {
                   Get the Playbook — $19
                   <ArrowRight className="h-3.5 w-3.5" />
                 </a>
+
+                {status !== "loading" && (
+                  session?.user ? (
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3 px-4 py-2">
+                        {session.user.image ? (
+                          <Image
+                            src={session.user.image}
+                            alt={session.user.name ?? "User"}
+                            width={28}
+                            height={28}
+                            className="h-7 w-7 rounded-full"
+                          />
+                        ) : (
+                          <div className="h-7 w-7 rounded-full bg-accent text-white flex items-center justify-center text-xs font-medium">
+                            {session.user.name?.charAt(0) ?? "U"}
+                          </div>
+                        )}
+                        <span className="text-sm text-foreground truncate">
+                          {session.user.name}
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setMobileOpen(false);
+                          signOut({ redirectTo: "/" });
+                        }}
+                        className="w-full px-5 py-2.5 text-sm font-medium text-red-500 rounded-lg border border-border hover:bg-red-50 transition-colors cursor-pointer"
+                      >
+                        Sign Out
+                      </button>
+                    </div>
+                  ) : (
+                    <Link
+                      href="/login"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-foreground rounded-lg border border-border hover:bg-black/5 transition-colors"
+                    >
+                      <LogIn className="h-3.5 w-3.5" />
+                      Login
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           </motion.div>
