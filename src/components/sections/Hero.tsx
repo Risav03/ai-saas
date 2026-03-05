@@ -124,7 +124,7 @@ export function Hero() {
             {/* CTA */}
             <FadeIn delay={0.5}>
               <a
-                href="#cta"
+                href="/purchase"
                 className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-accent hover:bg-accent/90 transition-colors duration-300"
               >
                 Get the Playbook — $19

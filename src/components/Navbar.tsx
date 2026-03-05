@@ -76,7 +76,7 @@ export function Navbar() {
           {/* Desktop CTA + Auth */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#cta"
+              href="/purchase"
               className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-white rounded-lg bg-accent hover:bg-accent/90 transition-all duration-200"
             >
               Get the Playbook — $19
@@ -194,7 +194,7 @@ export function Navbar() {
               ))}
               <div className="pt-3 border-t border-border mt-3 space-y-2">
                 <a
-                  href="#cta"
+                  href="/purchase"
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-white rounded-lg bg-accent"
                 >

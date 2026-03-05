@@ -1,11 +1,14 @@
 "use client";
 
 import { signIn, useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { Suspense } from "react";
 
-export default function LoginPage() {
+function LoginForm() {
   const { data: session, status } = useSession();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
   if (status === "loading") {
     return (
@@ -16,7 +19,7 @@ export default function LoginPage() {
   }
 
   if (session) {
-    redirect("/dashboard");
+    redirect(callbackUrl);
   }
 
   return (
@@ -45,7 +48,7 @@ export default function LoginPage() {
 
         {/* Google Sign-In Button */}
         <button
-          onClick={() => signIn("google", { redirectTo: "/dashboard" })}
+          onClick={() => signIn("google", { redirectTo: callbackUrl })}
           className="group w-full inline-flex items-center justify-center gap-3 px-6 py-3 text-sm font-medium rounded-lg border border-border bg-white text-gray-800 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 shadow-sm cursor-pointer"
         >
           {/* Google "G" icon */}
@@ -76,5 +79,19 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-background">
+          <div className="animate-pulse text-muted text-sm">Loading…</div>
+        </div>
+      }
+    >
+      <LoginForm />
+    </Suspense>
   );
 }

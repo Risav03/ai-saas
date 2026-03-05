@@ -6,6 +6,8 @@ export interface IUser {
   image?: string;
   plan: "free" | "pro" | "enterprise";
   planExpiresAt?: Date;
+  hasPurchasedBook: boolean;
+  bookPurchasedAt?: Date;
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
   createdAt: Date;
@@ -23,6 +25,8 @@ const UserSchema = new Schema<IUser>(
       default: "free",
     },
     planExpiresAt: { type: Date },
+    hasPurchasedBook: { type: Boolean, default: false },
+    bookPurchasedAt: { type: Date },
     stripeCustomerId: { type: String, sparse: true },
     stripeSubscriptionId: { type: String },
   },
