@@ -15,10 +15,6 @@
   --color-surface: #f8fafc;
 }
 
-.dark {
-  --background: oklch(0 0 0);
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
