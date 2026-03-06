@@ -5,11 +5,8 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.AUTH_SECRET });
   const isLoggedIn = !!token;
-  const isProtected =
-    req.nextUrl.pathname.startsWith("/dashboard") ||
-    req.nextUrl.pathname.startsWith("/purchase");
 
-  if (isProtected && !isLoggedIn) {
+  if (req.nextUrl.pathname.startsWith("/dashboard") && !isLoggedIn) {
     const loginUrl = new URL("/login", req.nextUrl);
     loginUrl.searchParams.set("callbackUrl", req.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
@@ -19,5 +16,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/purchase/:path*"],
+  matcher: ["/dashboard/:path*"],
 };

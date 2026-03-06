@@ -1,25 +1,28 @@
 "use client";
 
 import { signIn, useSession } from "next-auth/react";
-import { redirect, useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 
 function LoginForm() {
   const { data: session, status } = useSession();
   const searchParams = useSearchParams();
+  const router = useRouter();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
-  if (status === "loading") {
+  useEffect(() => {
+    if (session) {
+      router.push(callbackUrl);
+    }
+  }, [session, callbackUrl, router]);
+
+  if (status === "loading" || session) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="animate-pulse text-muted text-sm">Loading…</div>
       </div>
     );
-  }
-
-  if (session) {
-    redirect(callbackUrl);
   }
 
   return (

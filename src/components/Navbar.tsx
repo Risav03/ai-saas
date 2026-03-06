@@ -79,7 +79,7 @@ export function Navbar() {
               href="/purchase"
               className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-white rounded-lg bg-accent hover:bg-accent/90 transition-all duration-200"
             >
-              Get the Playbook — $19
+              Get the Playbook — $29
               <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
 
