@@ -15,7 +15,14 @@ export default async function PurchasePage() {
     mode: "payment",
     line_items: [
       {
-        price: process.env.STRIPE_PRICE_ID!,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: "Build a Company of AI Agents — Playbook",
+            description: "66-page PDF guide. Instant download. Lifetime updates.",
+          },
+          unit_amount: 2900,
+        },
         quantity: 1,
       },
     ],
