@@ -16,18 +16,18 @@ export function CTA() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
             <h2 className="relative text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Ready to hire your first AI?
+              Stop using AI. Start hiring it.
             </h2>
             <p className="relative mx-auto max-w-lg text-lg text-muted mb-10">
-              The playbook covers everything — identity, memory, tools, safety,
-              and the operating relationship that makes it work.
+              The complete founder&apos;s playbook — identity, memory, tools, safety,
+              the operating relationship, and everything you need to go from zero to a working AI employee.
             </p>
 
             <a
               href="/purchase"
               className="relative group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-accent hover:bg-accent/90 transition-colors duration-300"
             >
-              Get the Playbook — $29
+              Get the Guide — $29
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
 

@@ -18,8 +18,8 @@ export default async function PurchasePage() {
         price_data: {
           currency: "usd",
           product_data: {
-            name: "Build a Company of AI Agents — Playbook",
-            description: "66-page PDF guide. Instant download. Lifetime updates.",
+            name: "How to Hire an AI — The Complete Founder's Playbook",
+            description: "54-page PDF guide. Instant download. Lifetime updates.",
           },
           unit_amount: 2900,
         },

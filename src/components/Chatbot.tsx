@@ -10,7 +10,7 @@ interface Message {
 }
 
 const GREETING =
-  "Hi! I'm MoneyPenny, MoziHire's assistant. Ask me anything about the AI Agents playbook!";
+  "Hi! I'm MoneyPenny, MoziHire's assistant. Ask me anything about How to Hire an AI!";
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);

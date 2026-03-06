@@ -14,7 +14,7 @@ export default function PurchaseSuccessPage() {
             Payment Successful!
           </h1>
           <p className="text-sm text-muted">
-            Thank you for purchasing the AI Agents Playbook. You&apos;ll
+            Thank you for purchasing How to Hire an AI. You&apos;ll
             receive a confirmation email from Stripe shortly.
           </p>
         </div>

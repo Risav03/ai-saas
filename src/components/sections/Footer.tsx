@@ -19,7 +19,7 @@ export function Footer() {
               />
             </a>
             <span className="hidden sm:inline text-xs text-muted">
-              The AI employee playbook
+              How to Hire an AI
             </span>
           </div>
 
@@ -34,7 +34,7 @@ export function Footer() {
               X / Twitter
             </a>
             <a
-              href="mailto:hello@mozihire.com"
+              href="mailto:support@mozihire.ai"
               className="text-sm text-muted hover:text-foreground transition-colors"
             >
               Contact

@@ -7,23 +7,23 @@ const steps = [
   {
     icon: UserPlus,
     step: "01",
-    title: "Define Your Agent",
+    title: "Design the Identity",
     description:
-      "Set identity, role, and personality using the SOUL.md framework. Not a chatbot — a colleague with a real job.",
+      "Give your AI a name, role, and personality. Define how it thinks, communicates, and what it owns. Not a chatbot — a colleague with a real job.",
   },
   {
     icon: Cpu,
     step: "02",
-    title: "Configure Memory & Tools",
+    title: "Build Memory & Tools",
     description:
-      "Wire up three-layer memory, tool access, and sub-agent delegation. Build an AI that gets smarter over time.",
+      "Set up three-layer memory (daily logs, working context, playbook), add tool access, and configure permission levels.",
   },
   {
     icon: Rocket,
     step: "03",
-    title: "Deploy & Operate",
+    title: "Operate & Scale",
     description:
-      "Launch your AI employee with daily operating rhythms, safety rails, and the trust ladder for increasing autonomy.",
+      "Run daily briefings, working sessions, and evening wraps. Add safety rails. Scale to a multi-AI team as your business grows.",
   },
 ];
 

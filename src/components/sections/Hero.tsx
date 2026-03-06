@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { ArrowRight, Mail, Share2, Code2, Server, Shield, Bot, Activity } from "lucide-react";
+import { ArrowRight, Briefcase, PenTool, Code2, HeadphonesIcon, ClipboardList, Bot, Activity } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FadeIn } from "@/components/motion";
@@ -9,29 +9,29 @@ import { FallingPattern } from "@/components/ui/falling-pattern";
 
 const agentData = [
   {
-    name: "EmailBot", role: "Email Ops", icon: Mail,
-    iconBg: "bg-blue-100", iconColor: "text-blue-600", statusColor: "bg-emerald-400",
-    statuses: ["Processing 14 threads", "Drafting reply to Acme", "Sorting inbox — 3 left", "Sent follow-up to Jake", "Archiving 8 read threads"],
+    name: "Mozi", role: "Chief of Staff", icon: Briefcase,
+    iconBg: "bg-emerald-100", iconColor: "text-emerald-600", statusColor: "bg-emerald-400",
+    statuses: ["Prioritizing Q2 roadmap", "Reviewing weekly metrics", "Briefing on client deal", "Updating master playbook", "Scheduling strategy sync"],
   },
   {
-    name: "SocialBot", role: "Social Media", icon: Share2,
+    name: "Jordan", role: "Content Director", icon: PenTool,
     iconBg: "bg-pink-100", iconColor: "text-pink-600", statusColor: "bg-emerald-400",
-    statuses: ["Scheduling 3 posts", "Replying to @user_labs", "Generating carousel", "Analytics digest ready", "Queued reel for 6 PM"],
+    statuses: ["Drafting newsletter #47", "Repurposing blog → thread", "Writing ad copy v3", "Scheduling 5 posts", "Analytics digest ready"],
   },
   {
-    name: "DevBot", role: "Engineering", icon: Code2,
+    name: "Sam", role: "Lead Engineer", icon: Code2,
     iconBg: "bg-violet-100", iconColor: "text-violet-600", statusColor: "bg-emerald-400",
-    statuses: ["PR review #847", "Running test suite", "Rebasing feature/auth", "Fixing lint errors", "Deployed v2.4.2-rc1"],
+    statuses: ["PR review #847", "Running test suite", "Debugging auth flow", "Fixing lint errors", "Deployed v2.4.2-rc1"],
   },
   {
-    name: "InfraBot", role: "DevOps", icon: Server,
+    name: "Casey", role: "Customer Success", icon: HeadphonesIcon,
     iconBg: "bg-amber-100", iconColor: "text-amber-600", statusColor: "bg-yellow-400",
-    statuses: ["Scaling cluster → 4 nodes", "SSL cert renewed", "Deploying to staging", "DB backup complete", "Monitoring CPU spike"],
+    statuses: ["Drafting support reply", "Analyzing churn signals", "Onboarding new user", "Updating FAQ docs", "Retention report ready"],
   },
   {
-    name: "SecBot", role: "Security", icon: Shield,
-    iconBg: "bg-red-100", iconColor: "text-red-600", statusColor: "bg-emerald-400",
-    statuses: ["0 threats detected", "Scanning deps — 2/12", "Rotated API keys", "Audit log exported", "Blocked 3 IPs"],
+    name: "Morgan", role: "Operations", icon: ClipboardList,
+    iconBg: "bg-blue-100", iconColor: "text-blue-600", statusColor: "bg-emerald-400",
+    statuses: ["Organizing project files", "Scheduling team sync", "Tracking KPIs", "Updating SOPs", "Admin tasks — 2 left"],
   },
 ];
 
@@ -98,7 +98,7 @@ export function Hero() {
             <FadeIn delay={0.1}>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-accent/30 bg-accent/5 mb-8">
                 <span className="text-xs font-mono uppercase tracking-wider text-accent">
-                  66-Page PDF Guide
+                  54-Page PDF Guide
                 </span>
               </div>
             </FadeIn>
@@ -106,18 +106,18 @@ export function Hero() {
             {/* Headline */}
             <FadeIn delay={0.2}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-foreground">
-                Build a Company
+                How to
                 <br />
-                <span className="text-accent">of AI Agents</span>
+                <span className="text-accent">Hire an AI</span>
               </h1>
             </FadeIn>
 
             {/* Subtitle */}
             <FadeIn delay={0.35}>
               <p className="max-w-xl text-lg text-muted leading-relaxed mb-10 mx-auto lg:mx-0">
-                The practical playbook for turning LLMs into actual team members.
-                Identity design, memory architecture, tool access, and the operating
-                relationship that makes it work.
+                The complete founder&apos;s playbook for non-technical founders.
+                Stop using AI and start working with it — identity, memory,
+                tools, safety, and the operating relationship that makes it work.
               </p>
             </FadeIn>
 
@@ -127,7 +127,7 @@ export function Hero() {
                 href="/purchase"
                 className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-accent hover:bg-accent/90 transition-colors duration-300"
               >
-                Get the Playbook — $29
+                Get the Guide — $29
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <p className="mt-4 text-sm text-muted">

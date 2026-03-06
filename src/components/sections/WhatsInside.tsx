@@ -5,51 +5,75 @@ import { FadeIn } from "@/components/motion";
 const chapters = [
   {
     number: "01 — 03",
-    title: "The Foundation",
+    title: "The Mindset",
     description:
-      'Why "hiring" an AI is fundamentally different from using one. Platform options. Identity and personality design.',
+      'Why "hiring" an AI is fundamentally different from using one. The real cost of getting it wrong. Choosing your platform.',
   },
   {
-    number: "04 — 05",
-    title: "Memory & Systems",
+    number: "04",
+    title: "Designing Your AI's Identity",
     description:
-      "The three-layer memory architecture. Tools, capabilities, and sub-agent delegation patterns.",
+      "Give your AI a name, role, personality, and operating philosophy using the system prompt framework. Not a chatbot — a colleague.",
+  },
+  {
+    number: "05",
+    title: "The Memory Architecture",
+    description:
+      "The three-layer memory system: daily logs, working context, and the long-term playbook. Build an AI that remembers.",
   },
   {
     number: "06",
-    title: "Safety & Trust",
+    title: "Tools & Capabilities",
     description:
-      "Practical safety rails, the trust ladder, and how to increase autonomy without losing control.",
+      "The essential tool stack, permission architecture (green/yellow/red lights), and how to go from advisor to operator.",
   },
   {
     number: "07",
-    title: "The Operating Relationship",
+    title: "Safety Rails & Boundaries",
     description:
-      "Daily rhythms, communication patterns, and the management framework that actually works.",
+      "Audit logs, reversibility, scope limits, time limits, and escalation protocols. Own the consequences.",
   },
   {
-    number: "08 — 09",
-    title: "Coding Agents at Scale",
+    number: "08",
+    title: "The Operating Relationship",
     description:
-      "Ralph loops, parallel execution, TDD prompts, and infrastructure for running multiple agents simultaneously.",
+      "Morning briefings, working sessions, evening wraps, weekly rhythms — the daily management framework that actually works.",
+  },
+  {
+    number: "09",
+    title: "Managing AI at Scale",
+    description:
+      "The AI org chart, the coding agent protocol, the autonomous bug fix pipeline, and scaling without losing control.",
   },
   {
     number: "10",
-    title: "The Sentry Pipeline",
+    title: "Your First Week",
     description:
-      "A system that detects, triages, fixes, and ships bug fixes autonomously — sometimes while you sleep.",
+      "Day-by-day from zero to a working AI employee. Setup, feedback loops, adding tools, building memory habits.",
   },
   {
     number: "11",
-    title: "Advanced Configuration",
+    title: "Industry Playbooks",
     description:
-      "Multi-agent architecture, webhook hooks, semantic memory, and production-grade config.",
+      "Ready-to-use playbooks for e-commerce, agencies, SaaS companies, and content creators.",
   },
   {
-    number: "12",
-    title: "Quick-Start Kit",
+    number: "12 — 14",
+    title: "Delegation, Failures & Multi-AI Teams",
     description:
-      "Step-by-step from zero to working AI employee in one afternoon. Every command, every config file.",
+      "What to delegate vs. keep. Common failure modes and fixes. When and how to expand to a multi-AI team.",
+  },
+  {
+    number: "15",
+    title: "Templates & Quick-Start Kit",
+    description:
+      "Copy-paste templates: system prompts, daily logs, master playbook, task briefs, weekly reviews, and hiring interviews.",
+  },
+  {
+    number: "16",
+    title: "The Hard Truth",
+    description:
+      "Why most people won't implement this — and what the next 5 years look like for those who do.",
   },
 ];
 
@@ -69,11 +93,11 @@ export function WhatsInside() {
             What&apos;s Inside
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-            66 pages. No fluff.
+            54 pages. No fluff.
           </h2>
           <p className="mx-auto max-w-lg text-lg text-muted">
-            Everything you need to turn an LLM into an actual team member —
-            from identity design to production deployment.
+            Everything you need to stop using AI and start hiring it —
+            from identity design to daily operations to scaling a multi-AI team.
           </p>
         </FadeIn>
 

@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MoziHire — Build a Company of AI Agents",
+  title: "MoziHire — How to Hire an AI",
   description:
-    "The practical playbook for building and managing AI employees. Learn how to set up autonomous agents that handle real work.",
+    "The complete founder's playbook for non-technical founders who want to stop using AI and start working with it.",
 };
 
 export default function RootLayout({
