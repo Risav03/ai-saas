@@ -75,13 +75,15 @@ export function Navbar() {
 
           {/* Desktop CTA + Auth */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="/purchase"
-              className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-white rounded-lg bg-accent hover:bg-accent/90 transition-all duration-200"
-            >
-              Get the Guide — $29
-              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
-            </a>
+            {!session?.user?.hasPurchasedBook && (
+              <a
+                href="/purchase"
+                className="group inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-white rounded-lg bg-accent hover:bg-accent/90 transition-all duration-200"
+              >
+                Get the Guide — $29
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
+              </a>
+            )}
 
             {status === "loading" ? (
               <div className="h-8 w-8 rounded-full bg-border animate-pulse" />
@@ -193,14 +195,16 @@ export function Navbar() {
                 </a>
               ))}
               <div className="pt-3 border-t border-border mt-3 space-y-2">
-                <a
-                  href="/purchase"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-white rounded-lg bg-accent"
-                >
-                  Get the Guide — $29
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </a>
+                {!session?.user?.hasPurchasedBook && (
+                  <a
+                    href="/purchase"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-white rounded-lg bg-accent"
+                  >
+                    Get the Guide — $29
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                )}
 
                 {status !== "loading" && (
                   session?.user ? (

@@ -30,5 +30,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       return true;
     },
+    async session({ session }) {
+      if (session.user?.email) {
+        await connectDB();
+        const dbUser = await User.findOne({ email: session.user.email })
+          .select("hasPurchasedBook")
+          .lean();
+        session.user.hasPurchasedBook = dbUser?.hasPurchasedBook ?? false;
+      }
+      return session;
+    },
   },
 });
