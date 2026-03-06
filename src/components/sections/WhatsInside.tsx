@@ -7,79 +7,73 @@ const chapters = [
     number: "01 — 03",
     title: "The Mindset",
     description:
-      "Why hiring beats using. The real cost. Picking your platform.",
+      'Why "hiring" an AI is fundamentally different from using one. The real cost of getting it wrong. Choosing your platform.',
   },
   {
     number: "04",
-    title: "Identity",
+    title: "Designing Your AI's Identity",
     description:
-      "Name, role, personality, and system prompt design.",
+      "Give your AI a name, role, personality, and operating philosophy using the system prompt framework. Not a chatbot — a colleague.",
   },
   {
     number: "05",
-    title: "Memory",
+    title: "The Memory Architecture",
     description:
-      "Three-layer memory: daily logs, context, and the playbook.",
+      "The three-layer memory system: daily logs, working context, and the long-term playbook. Build an AI that remembers.",
   },
   {
     number: "06",
-    title: "Tools",
+    title: "Tools & Capabilities",
     description:
-      "Tool stack, permission levels, and first setup.",
+      "The essential tool stack, permission architecture (green/yellow/red lights), and how to go from advisor to operator.",
   },
   {
     number: "07",
-    title: "Safety",
+    title: "Safety Rails & Boundaries",
     description:
-      "Boundaries, audit logs, reversibility, and escalation.",
+      "Audit logs, reversibility, scope limits, time limits, and escalation protocols. Own the consequences.",
   },
   {
     number: "08",
-    title: "Operations",
+    title: "The Operating Relationship",
     description:
-      "Daily briefings, working sessions, and weekly rhythms.",
+      "Morning briefings, working sessions, evening wraps, weekly rhythms — the daily management framework that actually works.",
   },
   {
     number: "09",
-    title: "Scale",
+    title: "Managing AI at Scale",
     description:
-      "AI org chart, coding agents, and the bug fix pipeline.",
+      "The AI org chart, the coding agent protocol, the autonomous bug fix pipeline, and scaling without losing control.",
   },
   {
     number: "10",
-    title: "First Week",
+    title: "Your First Week",
     description:
-      "Day-by-day from zero to working AI employee.",
+      "Day-by-day from zero to a working AI employee. Setup, feedback loops, adding tools, building memory habits.",
   },
   {
     number: "11",
     title: "Industry Playbooks",
     description:
-      "E-commerce, agency, SaaS, and content creator setups.",
+      "Ready-to-use playbooks for e-commerce, agencies, SaaS companies, and content creators.",
   },
   {
     number: "12 — 14",
-    title: "Delegation & Multi-AI",
+    title: "Delegation, Failures & Multi-AI Teams",
     description:
-      "What to keep vs. delegate. Failures. Expanding your team.",
+      "What to delegate vs. keep. Common failure modes and fixes. When and how to expand to a multi-AI team.",
   },
   {
     number: "15",
-    title: "Templates",
+    title: "Templates & Quick-Start Kit",
     description:
-      "Copy-paste prompts, logs, playbooks, briefs, and reviews.",
+      "Copy-paste templates: system prompts, daily logs, master playbook, task briefs, weekly reviews, and hiring interviews.",
   },
   {
     number: "16",
-    title: "What Comes Next",
+    title: "The Hard Truth",
     description:
-      "The hard truth and what the next 5 years look like.",
-  },
-  {
-    number: "A — C",
-    title: "Appendices",
-    description:
-      "Platform reference, glossary, and recommended reading.",
+      "Why most people won't implement this — and what the next 5 years look like for those who do.",
   },
 ];
 
