@@ -9,6 +9,8 @@ export interface IUser {
   hasPurchasedBook: boolean;
   bookPurchasedAt?: Date;
   stripeCustomerId?: string;
+  stripePaymentIntentId?: string;
+  stripeCheckoutSessionId?: string;
   stripeSubscriptionId?: string;
   createdAt: Date;
   updatedAt: Date;
@@ -28,6 +30,8 @@ const UserSchema = new Schema<IUser>(
     hasPurchasedBook: { type: Boolean, default: false },
     bookPurchasedAt: { type: Date },
     stripeCustomerId: { type: String, sparse: true },
+    stripePaymentIntentId: { type: String },
+    stripeCheckoutSessionId: { type: String },
     stripeSubscriptionId: { type: String },
   },
   { timestamps: true }

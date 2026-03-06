@@ -38,10 +38,15 @@ export async function POST(req: NextRequest) {
       const update: Record<string, unknown> = {
         hasPurchasedBook: true,
         bookPurchasedAt: new Date(),
+        stripeCheckoutSessionId: session.id,
       };
 
       if (session.customer) {
         update.stripeCustomerId = session.customer as string;
+      }
+
+      if (session.payment_intent) {
+        update.stripePaymentIntentId = session.payment_intent as string;
       }
 
       await User.updateOne({ email }, update);

@@ -1,19 +1,12 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
 import { connectDB } from "@/lib/db";
 import User from "@/models/User";
+import { authConfig } from "@/lib/auth.config";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  providers: [
-    Google({
-      clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET,
-    }),
-  ],
-  pages: {
-    signIn: "/login",
-  },
+  ...authConfig,
   callbacks: {
+    ...authConfig.callbacks,
     async signIn({ user }) {
       if (!user.email) return false;
 
@@ -36,12 +29,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
 
       return true;
-    },
-    async redirect({ url, baseUrl }) {
-      // After sign-in, redirect to /dashboard
-      if (url.startsWith(baseUrl)) return url;
-      if (url.startsWith("/")) return `${baseUrl}${url}`;
-      return `${baseUrl}/dashboard`;
     },
   },
 });
