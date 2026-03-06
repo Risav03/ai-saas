@@ -34,14 +34,17 @@ export async function POST(req: NextRequest) {
 
     if (email) {
       await connectDB();
-      await User.updateOne(
-        { email },
-        {
-          hasPurchasedBook: true,
-          bookPurchasedAt: new Date(),
-          stripeCustomerId: session.customer as string,
-        }
-      );
+
+      const update: Record<string, unknown> = {
+        hasPurchasedBook: true,
+        bookPurchasedAt: new Date(),
+      };
+
+      if (session.customer) {
+        update.stripeCustomerId = session.customer as string;
+      }
+
+      await User.updateOne({ email }, update);
     }
   }
 

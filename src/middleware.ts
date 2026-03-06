@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { getToken } from "next-auth/jwt";
+import { auth } from "@/lib/auth";
 
-export async function middleware(req: NextRequest) {
-  const token = await getToken({ req, secret: process.env.AUTH_SECRET });
-  const isLoggedIn = !!token;
+export default auth((req) => {
+  const isLoggedIn = !!req.auth;
 
   if (req.nextUrl.pathname.startsWith("/dashboard") && !isLoggedIn) {
     const loginUrl = new URL("/login", req.nextUrl);
@@ -13,7 +11,7 @@ export async function middleware(req: NextRequest) {
   }
 
   return NextResponse.next();
-}
+});
 
 export const config = {
   matcher: ["/dashboard/:path*"],
