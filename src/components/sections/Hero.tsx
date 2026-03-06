@@ -127,7 +127,7 @@ export function Hero() {
                 href="/purchase"
                 className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-accent hover:bg-accent/90 transition-colors duration-300"
               >
-                Get the Playbook — $19
+                Get the Playbook — $29
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <p className="mt-4 text-sm text-muted">

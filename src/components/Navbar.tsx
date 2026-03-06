@@ -198,7 +198,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-medium text-white rounded-lg bg-accent"
                 >
-                  Get the Playbook — $19
+                  Get the Playbook — $29
                   <ArrowRight className="h-3.5 w-3.5" />
                 </a>
 
