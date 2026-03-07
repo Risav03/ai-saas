@@ -50,7 +50,7 @@ export function Navbar({ hideNavLinks = false }: { hideNavLinks?: boolean }) {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5">
+          <a href="/#" className="flex items-center gap-2.5">
             <Image
               src="/assets/mozihire.png"
               alt="MoziHire"
