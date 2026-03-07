@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, Briefcase, PenTool, Code2, HeadphonesIcon, ClipboardList, Bot, Activity } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 import { FadeIn } from "@/components/motion";
 import { FallingPattern } from "@/components/ui/falling-pattern";
 
@@ -68,6 +69,7 @@ function useCyclingStatuses() {
 }
 
 export function Hero() {
+  const { data: session } = useSession();
   const taskCount = useAnimatedNumber(847, 5, 2200);
   const uptime = useAnimatedNumber(992, 2, 3500); // store as 992 → display as 99.2
   const statusIndices = useCyclingStatuses();
@@ -123,16 +125,28 @@ export function Hero() {
 
             {/* CTA */}
             <FadeIn delay={0.5}>
-              <a
-                href="/purchase"
-                className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-accent hover:bg-accent/90 transition-colors duration-300"
-              >
-                Get the Guide — $29
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <p className="mt-4 text-sm text-muted">
-                Instant PDF download &middot; Lifetime updates
-              </p>
+              {session?.user?.hasPurchasedBook ? (
+                <a
+                  href="/dashboard"
+                  className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-accent hover:bg-accent/90 transition-colors duration-300"
+                >
+                  Go to Dashboard
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              ) : (
+                <>
+                  <a
+                    href="/purchase"
+                    className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-accent hover:bg-accent/90 transition-colors duration-300"
+                  >
+                    Get the Guide — $29
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <p className="mt-4 text-sm text-muted">
+                    Instant PDF download &middot; Lifetime updates
+                  </p>
+                </>
+              )}
             </FadeIn>
           </div>
 
