@@ -13,7 +13,7 @@ const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
 ];
 
-export function Navbar() {
+export function Navbar({ hideNavLinks = false }: { hideNavLinks?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -61,17 +61,19 @@ export function Navbar() {
           </a>
 
           {/* Desktop Nav — absolute center */}
-          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="px-4 py-1.5 text-sm text-muted hover:text-foreground transition-all duration-200 rounded-lg border border-transparent hover:border-border hover:bg-black/5"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          {!hideNavLinks && (
+            <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="px-4 py-1.5 text-sm text-muted hover:text-foreground transition-all duration-200 rounded-lg border border-transparent hover:border-border hover:bg-black/5"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
 
           {/* Desktop CTA + Auth */}
           <div className="hidden md:flex items-center gap-3">
@@ -182,7 +184,7 @@ export function Navbar() {
             className="md:hidden glass border-t border-border overflow-hidden"
           >
             <div className="px-6 py-4 space-y-1">
-              {navLinks.map((link) => (
+              {!hideNavLinks && navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}

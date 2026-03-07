@@ -40,7 +40,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Navbar />
+      <Navbar hideNavLinks />
 
       <main className="flex-1 relative overflow-hidden">
         {/* Background decorations */}
